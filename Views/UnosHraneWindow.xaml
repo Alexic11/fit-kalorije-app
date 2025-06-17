@@ -1,0 +1,41 @@
+﻿<Window x:Class="Fit.Views.UnosHraneWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{DynamicResource UnosHraneNaslov}" Height="700" Width="400">
+    <Grid Margin="20">
+        <StackPanel>
+
+            <TextBlock Text="{DynamicResource NazivObrokaLabel}" Margin="0,0,0,5"/>
+            <TextBox Text="{Binding Naziv, Mode=TwoWay}" Margin="0,0,0,10" />
+
+            <TextBlock Text="{DynamicResource KalorijeLabel}" Margin="0,0,0,5"/>
+            <TextBox Text="{Binding Kalorije, Mode=TwoWay}" Margin="0,0,0,10" />
+
+            <TextBlock Text="{DynamicResource ProteiniLabel}" Margin="0,0,0,5"/>
+            <TextBox Text="{Binding Proteini, Mode=TwoWay}" Margin="0,0,0,10" />
+
+            <TextBlock Text="{DynamicResource UgljeniHidratiLabel}" Margin="0,0,0,5"/>
+            <TextBox Text="{Binding UgljeniHidrati, Mode=TwoWay}" Margin="0,0,0,10" />
+
+            <TextBlock Text="{DynamicResource MastiLabel}" Margin="0,0,0,5"/>
+            <TextBox Text="{Binding Masti, Mode=TwoWay}" Margin="0,0,0,10" />
+
+            <TextBlock Text="{DynamicResource MasaLabel}" Margin="0,0,0,5"/>
+            <TextBox Text="{Binding Masa, Mode=TwoWay}" Margin="0,0,0,10" />
+
+            <TextBlock Text="{DynamicResource TipObrokaLabel}" Margin="0,0,0,5"/>
+            <ComboBox ItemsSource="{Binding TipoviObroka}"
+                      SelectedItem="{Binding SelektovaniTipObroka, Mode=TwoWay}"
+                      DisplayMemberPath="Naziv"
+                      Margin="0,0,0,10"/>
+
+            <TextBlock Text="{DynamicResource DatumUnosaLabel}" Margin="0,0,0,5"/>
+            <DatePicker SelectedDate="{Binding DatumUnosa, Mode=TwoWay}" Margin="0,0,0,10"/>
+
+            <TextBlock Text="{DynamicResource VrijemeUnosaLabel}" Margin="0,0,0,5"/>
+            <TextBox Text="{Binding VrijemeUnosa, Mode=TwoWay}" Margin="0,0,0,10" />
+
+            <Button Content="{DynamicResource DodajObrokBtn}" Command="{Binding DodajHranuCommand}" />
+        </StackPanel>
+    </Grid>
+</Window>

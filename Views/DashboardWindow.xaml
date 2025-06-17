@@ -1,0 +1,21 @@
+﻿<Window x:Class="Fit.Views.DashboardWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Fit.Views"
+        mc:Ignorable="d"
+        Title="{DynamicResource DashboardTitle}" Height="450" Width="800">
+
+    <Grid Margin="20">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="300">
+            <TextBlock Text="{DynamicResource WelcomeTextDashboard}" FontSize="24" FontWeight="Bold" Margin="0,0,0,20"/>
+            <Button x:Name="btnUnosCilja" Content="{DynamicResource TargetCaloriesEntry}" Margin="0,5"/>
+            <Button x:Name="btnUnosHrane" Content="{DynamicResource FoodEntry}" Margin="0,5"/>
+            <Button x:Name="btnUnosAktivnosti" Content="{DynamicResource ActivityEntry}" Margin="0,5"/>
+            <Button x:Name="btnPrikazUnosa" Content="{DynamicResource AllEntriesView}" Margin="0,5"/>
+            <Button x:Name="btnBilans" Content="{DynamicResource DailyBalance}" Margin="0,5"/>
+            <Button x:Name="btnPregledAktivnosti" Content="{DynamicResource ActivityOverview}" Margin="0,5"/>
+        </StackPanel>
+    </Grid>
+</Window>

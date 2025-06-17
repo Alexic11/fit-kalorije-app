@@ -1,0 +1,29 @@
+﻿<Window x:Class="Fit.Views.UnosAktivnostiWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{DynamicResource UnosAktivnostiNaslov}" Height="400" Width="400">
+    <Grid Margin="20">
+        <StackPanel>
+            <TextBlock Text="{DynamicResource TipAktivnostiLabel}" Margin="0,0,0,5"/>
+            <ComboBox ItemsSource="{Binding TipoviAktivnosti}" 
+                      DisplayMemberPath="Naziv" 
+                      SelectedItem="{Binding SelektovaniTip, Mode=TwoWay}" />
+
+            <TextBlock Text="{DynamicResource NazivAktivnostiLabel}" Margin="0,10,0,5"/>
+            <TextBox Text="{Binding Naziv, Mode=TwoWay}" />
+
+            <TextBlock Text="{DynamicResource TrajanjeMinLabel}" Margin="0,10,0,5"/>
+            <TextBox Text="{Binding TrajanjeUMinutama, Mode=TwoWay}" />
+
+            <TextBlock Text="{DynamicResource DatumAktivnostiLabel}" Margin="0,10,0,5"/>
+            <DatePicker SelectedDate="{Binding DatumUnosa, Mode=TwoWay}" />
+
+            <TextBlock Text="{DynamicResource VrijemeAktivnostiLabel}" Margin="0,10,0,5"/>
+            <TextBox Text="{Binding VrijemeUnosa, Mode=TwoWay}" />
+
+            <Button Content="{DynamicResource SacuvajBtn2}"
+                    Command="{Binding SacuvajAktivnostCommand}" 
+                    Margin="0,15,0,0"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,108 @@
+﻿<Window x:Class="Fit.Views.PregledKorisnikaView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:Fit.ViewModels"
+        Title="{DynamicResource UserOverviewTitle}" 
+        Height="450" 
+        Width="700"
+        Background="#f5f5f5"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.DataContext>
+        <vm:PregledKorisnikaViewModel />
+    </Window.DataContext>
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Tabela korisnika -->
+        <DataGrid Grid.Row="0"
+                  ItemsSource="{Binding Korisnici}" 
+                  SelectedItem="{Binding SelektovaniKorisnik, Mode=TwoWay}"
+                  AutoGenerateColumns="False" 
+                  IsReadOnly="True" 
+                  CanUserAddRows="False"
+                  SelectionMode="Single"
+                  HeadersVisibility="Column"
+                  GridLinesVisibility="Horizontal"
+                  RowBackground="White"
+                  AlternatingRowBackground="#eaeaea"
+                  BorderBrush="#cccccc"
+                  BorderThickness="1"
+                  ColumnHeaderHeight="40"
+                  RowHeight="35"
+                  FontSize="14"
+                  Foreground="Black"
+                  Margin="0,0,0,10"
+                  HorizontalGridLinesBrush="#D3D3D3"
+                  VerticalGridLinesBrush="#D3D3D3"
+                  Background="White"
+                  MaxHeight="400"
+                  VerticalAlignment="Top">
+
+            <DataGrid.Resources>
+                <!-- Stil za kolone naslova -->
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="Background" Value="#007ACC"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="FontSize" Value="15"/>
+                    <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                    <Setter Property="BorderBrush" Value="#005A9E"/>
+                </Style>
+
+                <!-- Stil za redove na hover -->
+                <Style TargetType="DataGridRow">
+                    <Setter Property="SnapsToDevicePixels" Value="True"/>
+                    <Setter Property="Validation.ErrorTemplate" Value="{x:Null}"/>
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#CCE5FF"/>
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="#3399FF"/>
+                            <Setter Property="Foreground" Value="White"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.Resources>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{DynamicResource FirstNameHeader}" Binding="{Binding Ime}" />
+                <DataGridTextColumn Header="{DynamicResource LastNameHeader}" Binding="{Binding Prezime}" />
+                <DataGridTextColumn Header="{DynamicResource UsernameHeader}" Binding="{Binding KorisnickoIme}" />
+                <DataGridTextColumn Header="{DynamicResource RoleHeader}" Binding="{Binding IdRoleNavigation.Naziv}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Dugmad -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0" >
+            <Button Content="{DynamicResource AddButton}" 
+                    Width="90" Height="35" Margin="5"
+                    Background="#4CAF50" Foreground="White" 
+                    FontWeight="SemiBold" BorderBrush="Transparent"
+                    Cursor="Hand"
+                    Command="{Binding DodajCommand}"/>
+
+            <Button Content="{DynamicResource EditButton}" 
+                    Width="90" Height="35" Margin="5"
+                    Background="#FF9800" Foreground="White" 
+                    FontWeight="SemiBold" BorderBrush="Transparent"
+                    Cursor="Hand"
+                    Command="{Binding IzmijeniCommand}"/>
+
+            <Button Content="{DynamicResource DeleteButton}" 
+                    Width="90" Height="35" Margin="5"
+                    Background="#F44336" Foreground="White" 
+                    FontWeight="SemiBold" BorderBrush="Transparent"
+                    Cursor="Hand"
+                    Command="{Binding ObrisiCommand}"/>
+        </StackPanel>
+    </Grid>
+</Window>

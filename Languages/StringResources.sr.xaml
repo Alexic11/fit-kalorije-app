@@ -1,0 +1,158 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <sys:String x:Key="WindowTitle">FitApp - Prijava</sys:String>
+    <sys:String x:Key="WelcomeText">Dobrodošli u FitApp</sys:String>
+    <sys:String x:Key="UsernameLabel">Korisničko ime:</sys:String>
+    <sys:String x:Key="PasswordLabel">Lozinka:</sys:String>
+    <sys:String x:Key="LoginButtonText">Prijavi se</sys:String>
+    <sys:String x:Key="RegisterButtonText">Registruj se</sys:String>
+    <sys:String x:Key="ThemeLabel">Tema</sys:String>
+    <sys:String x:Key="LanguageLabel">Jezik</sys:String>
+
+    <!-- RegisterWindow -->
+    <sys:String x:Key="RegisterWindowTitle">Registracija</sys:String>
+    <sys:String x:Key="FirstNameLabel">Ime</sys:String>
+    <sys:String x:Key="LastNameLabel">Prezime</sys:String>
+
+
+    <sys:String x:Key="AdminPanelTitle">Admin panel</sys:String>
+    <sys:String x:Key="AdminWelcomeText">Dobrodošli, admin!</sys:String>
+    <sys:String x:Key="ViewUsersButton">Pregled korisnika</sys:String>
+
+
+
+    <sys:String x:Key="UserOverviewTitle">Pregled korisnika</sys:String>
+    <sys:String x:Key="FirstNameHeader">Ime</sys:String>
+    <sys:String x:Key="LastNameHeader">Prezime</sys:String>
+    <sys:String x:Key="UsernameHeader">Korisničko ime</sys:String>
+    <sys:String x:Key="RoleHeader">Rola</sys:String>
+    <sys:String x:Key="AddButton">Dodaj</sys:String>
+    <sys:String x:Key="EditButton">Izmijeni</sys:String>
+    <sys:String x:Key="DeleteButton">Obriši</sys:String>
+
+
+    <sys:String x:Key="DashboardTitle">Kontrolna tabla</sys:String>
+    <sys:String x:Key="WelcomeTextDashboard">Dobrodošli!</sys:String>
+    <sys:String x:Key="TargetCaloriesEntry">Unos ciljanih kalorija</sys:String>
+    <sys:String x:Key="FoodEntry">Unos hrane</sys:String>
+    <sys:String x:Key="ActivityEntry">Unos aktivnosti</sys:String>
+    <sys:String x:Key="AllEntriesView">Pregled unosa svih dana</sys:String>
+    <sys:String x:Key="DailyBalance">Bilans dana</sys:String>
+    <sys:String x:Key="ActivityOverview">Pregled aktivnosti</sys:String>
+
+
+    <sys:String x:Key="BilansWindowTitle">Dnevni bilans kalorija</sys:String>
+    <sys:String x:Key="UneseneKalorije">Unesene kalorije:</sys:String>
+    <sys:String x:Key="PotroseneKalorije">Potrošene kalorije:</sys:String>
+    <sys:String x:Key="CiljKalorija">Cilj kalorija:</sys:String>
+    <sys:String x:Key="PreostaloZaUnos">Preostalo za unos:</sys:String>
+    <sys:String x:Key="BilansStanje">Bilans:</sys:String>
+
+
+    <sys:String x:Key="KorisnikFormaNaslov">Korisnik</sys:String>
+    <sys:String x:Key="ImeLabel">Ime:</sys:String>
+    <sys:String x:Key="PrezimeLabel">Prezime:</sys:String>
+    <sys:String x:Key="KorisnickoImeLabel">Korisničko ime:</sys:String>
+    <sys:String x:Key="LozinkaLabel">Nova lozinka (opcionalno):</sys:String>
+    <sys:String x:Key="RolaLabel">Rola (1-admin, 2-korisnik):</sys:String>
+    <sys:String x:Key="SacuvajBtn">Sačuvaj</sys:String>
+    <sys:String x:Key="OtkaziBtn">Otkaži</sys:String>
+
+
+    <sys:String x:Key="PregledAktivnostiNaslov">Pregled aktivnosti</sys:String>
+    <sys:String x:Key="FilterNazivLabel">Filter po nazivu:</sys:String>
+    <sys:String x:Key="FilterTipLabel">Filter po tipu aktivnosti:</sys:String>
+    <sys:String x:Key="KolonaNaziv">Naziv</sys:String>
+    <sys:String x:Key="KolonaTrajanje">Trajanje (min)</sys:String>
+    <sys:String x:Key="KolonaDatum">Datum i vrijeme</sys:String>
+    <sys:String x:Key="KolonaTip">Tip aktivnosti</sys:String>
+    <sys:String x:Key="ObrisiBtn">Obriši selektovanu aktivnost</sys:String>
+
+
+    <sys:String x:Key="PrikazUnosaNaslov">Prikaz unosa obroka</sys:String>
+    <sys:String x:Key="FilterNazivLabel2">Filter po nazivu:</sys:String>
+    <sys:String x:Key="FilterTipObrokaLabel">Filter po tipu obroka:</sys:String>
+    <sys:String x:Key="KolonaNaziv2">Naziv</sys:String>
+    <sys:String x:Key="KolonaKalorije">Kalorije</sys:String>
+    <sys:String x:Key="KolonaProteini">Proteini (g)</sys:String>
+    <sys:String x:Key="KolonaUH">Ugljeni hidrati (g)</sys:String>
+    <sys:String x:Key="KolonaMasti">Masti (g)</sys:String>
+    <sys:String x:Key="KolonaMasa">Masa (g)</sys:String>
+    <sys:String x:Key="KolonaDatumVrijeme">Datum i vrijeme</sys:String>
+    <sys:String x:Key="KolonaTipObroka">Tip obroka</sys:String>
+    <sys:String x:Key="ObrisiObrokBtn">Obriši selektovani obrok</sys:String>
+
+
+    <sys:String x:Key="UnosAktivnostiNaslov">Unos aktivnosti</sys:String>
+    <sys:String x:Key="TipAktivnostiLabel">Tip aktivnosti:</sys:String>
+    <sys:String x:Key="NazivAktivnostiLabel">Naziv aktivnosti:</sys:String>
+    <sys:String x:Key="TrajanjeMinLabel">Trajanje u minutama:</sys:String>
+    <sys:String x:Key="DatumAktivnostiLabel">Datum aktivnosti:</sys:String>
+    <sys:String x:Key="VrijemeAktivnostiLabel">Vrijeme aktivnosti (HH:mm):</sys:String>
+    <sys:String x:Key="SacuvajBtn2">Sačuvaj</sys:String>
+
+    <sys:String x:Key="UnosCiljaNaslov">Unos cilja</sys:String>
+    <sys:String x:Key="CiljKalorijeLabel">Cilj (kalorije):</sys:String>
+    <sys:String x:Key="SacuvajBtn3">Sačuvaj</sys:String>
+
+    <sys:String x:Key="UnosHraneNaslov">Unos obroka</sys:String>
+    <sys:String x:Key="NazivObrokaLabel">Naziv obroka:</sys:String>
+    <sys:String x:Key="KalorijeLabel">Kalorije (kcal):</sys:String>
+    <sys:String x:Key="ProteiniLabel">Proteini (g):</sys:String>
+    <sys:String x:Key="UgljeniHidratiLabel">Ugljeni hidrati (g):</sys:String>
+    <sys:String x:Key="MastiLabel">Masti (g):</sys:String>
+    <sys:String x:Key="MasaLabel">Masa (g):</sys:String>
+    <sys:String x:Key="TipObrokaLabel">Tip obroka:</sys:String>
+    <sys:String x:Key="DatumUnosaLabel">Datum unosa:</sys:String>
+    <sys:String x:Key="VrijemeUnosaLabel">Vrijeme unosa (HH:mm):</sys:String>
+    <sys:String x:Key="DodajObrokBtn">Dodaj obrok</sys:String>
+
+
+    <sys:String x:Key="PorukaAktivnostSacuvana">Aktivnost sačuvana! Potrošeno {0} kcal.</sys:String>
+    <sys:String x:Key="PorukaPopuniSve">Molimo popunite sve podatke ispravno.</sys:String>
+    <sys:String x:Key="PorukaNeispravnoVrijeme">Molimo unesite ispravno vrijeme u formatu HH:mm.</sys:String>
+
+    <sys:String x:Key="InvalidPasswordMessage">Neispravna lozinka.</sys:String>
+    <sys:String x:Key="IncorrectUsername">Korisničko ime nije pronađeno.</sys:String>
+    <sys:String x:Key="FillAllFieldsMessage">Molimo unesite korisničko ime i lozinku.</sys:String>
+    <sys:String x:Key="NotificationTitle">Obavještenje</sys:String>
+
+
+    <sys:String x:Key="ConfirmDeleteUser">Da li ste sigurni da želite obrisati korisnika?</sys:String>
+    <sys:String x:Key="DeleteTitle">Brisanje</sys:String>
+    <sys:String x:Key="ConfirmDeleteActivity">Da li ste sigurni da želite obrisati ovu aktivnost?</sys:String>
+    <sys:String x:Key="ConfirmationTitle">Potvrda</sys:String>
+
+
+    <sys:String x:Key="ConfirmDeleteMeal">Da li ste sigurni da želite obrisati ovaj obrok?</sys:String>
+    <sys:String x:Key="ConfirmationTitle2">Potvrda</sys:String>
+
+    <sys:String x:Key="FillAllFieldsMessage2">Molimo unesite korisničko ime i lozinku.</sys:String>
+    <sys:String x:Key="NotificationTitle2">Obavještenje</sys:String>
+    <sys:String x:Key="UsernameExistsMessage">Korisničko ime već postoji.</sys:String>
+    <sys:String x:Key="SuccessfulRegistration">Registracija uspješna!</sys:String>
+
+
+    <!-- Poruke na srpskom -->
+    <sys:String x:Key="PorukaPopuniSve2">Molimo popunite sva polja.</sys:String>
+    <sys:String x:Key="PorukaNeispravnoVrijeme2">Unesite ispravno vreme u formatu HH:mm.</sys:String>
+    <sys:String x:Key="PorukaAktivnostSacuvana2">Aktivnost je sačuvana! Sagoreli ste {0} kalorija.</sys:String>
+
+
+    <!-- Srpski -->
+    <sys:String x:Key="PorukaUnesiteValidanBroj">Unesite validan broj kalorija.</sys:String>
+    <sys:String x:Key="NaslovGreska">Greška</sys:String>
+    <sys:String x:Key="PorukaCiljAzuriran">Cilj je uspješno ažuriran!</sys:String>
+    <sys:String x:Key="PorukaCiljSacuvan">Cilj je uspješno sačuvan!</sys:String>
+    <sys:String x:Key="NaslovObavestenje">Obavještenje</sys:String>
+
+
+    <sys:String x:Key="PorukaPopuniSvePodatke">Molimo unesite sve podatke ispravno.</sys:String>
+    <sys:String x:Key="PorukaNeispravnoVrijeme3">Molimo unesite ispravno vrijeme u formatu HH:mm.</sys:String>
+    <sys:String x:Key="PorukaObrokSacuvan">Obrok uspješno sačuvan!</sys:String>
+    <sys:String x:Key="NaslovGreska3">Greška</sys:String>
+    <sys:String x:Key="NaslovObavestenje3">Obavještenje</sys:String>
+
+</ResourceDictionary>
