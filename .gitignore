@@ -1,0 +1,38 @@
+## Build results
+bin/
+obj/
+
+## Visual Studio
+.vs/
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Temporary WPF projects
+*_wpftmp.csproj
+*_wpftmp.*
+
+## NuGet
+packages/
+*.nupkg
+*.snupkg
+
+## Rider / JetBrains
+.idea/
+*.sln.iml
+
+## VS Code
+.vscode/
+
+## Logs
+*.log
+
+## OS files
+.DS_Store
+Thumbs.db
+
+## Temporary files
+*.tmp
+*.temp
