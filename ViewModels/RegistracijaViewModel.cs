@@ -1,10 +1,10 @@
 ﻿using Fit.Models;
+using Fit.Security;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Security.Cryptography;
-using System.Text;
+using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 
@@ -13,13 +13,17 @@ namespace Fit.ViewModels
     class RegistracijaViewModel : INotifyPropertyChanged
     {
         public ObservableCollection<Korisnik> Korisniks { get; set; }
+
         public Korisnik NewKorisnik { get; set; }
+
         public ICommand RegisterCommand { get; set; }
+
         public FitAppContext context { get; set; }
 
-        public event Action RegistrationSuccessful;
+        public event Action? RegistrationSuccessful;
 
-        private string _lozinka;
+        private string _lozinka = string.Empty;
+
         public string Lozinka
         {
             get => _lozinka;
@@ -36,87 +40,128 @@ namespace Fit.ViewModels
         public RegistracijaViewModel()
         {
             context = new FitAppContext();
-            var korisniks = context.Korisniks.Include(k => k.IdRoleNavigation).ToList();
-            Korisniks = new ObservableCollection<Korisnik>(korisniks);
+
+            var korisniks = context.Korisniks
+                .Include(k => k.IdRoleNavigation)
+                .ToList();
+
+            Korisniks =
+                new ObservableCollection<Korisnik>(korisniks);
 
             NewKorisnik = new Korisnik();
-            RegisterCommand = new RelayCommand(Register);
+
+            RegisterCommand =
+                new RelayCommand(Register);
         }
 
         private void Register()
         {
-            if (string.IsNullOrWhiteSpace(NewKorisnik.KorisnickoIme) || string.IsNullOrWhiteSpace(NewKorisnik.Lozinka))
+            if (string.IsNullOrWhiteSpace(
+                    NewKorisnik.KorisnickoIme) ||
+                string.IsNullOrWhiteSpace(
+                    NewKorisnik.Lozinka))
             {
-                string fillMessage = Application.Current.Resources.Contains("FillAllFieldsMessage2")
-                    ? (string)Application.Current.Resources["FillAllFieldsMessage2"]
-                    : "Molimo unesite korisničko ime i lozinku.";
+                string fillMessage =
+                    Application.Current.Resources.Contains(
+                        "FillAllFieldsMessage2")
+                        ? (string)Application.Current.Resources[
+                            "FillAllFieldsMessage2"]
+                        : "Molimo unesite korisničko ime i lozinku.";
 
-                string notifTitle = Application.Current.Resources.Contains("NotificationTitle2")
-                    ? (string)Application.Current.Resources["NotificationTitle2"]
-                    : "Obavještenje";
+                string notifTitle =
+                    Application.Current.Resources.Contains(
+                        "NotificationTitle2")
+                        ? (string)Application.Current.Resources[
+                            "NotificationTitle2"]
+                        : "Obavještenje";
 
-                MessageBox.Show(fillMessage, notifTitle, MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show(
+                    fillMessage,
+                    notifTitle,
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Warning);
+
                 return;
             }
 
-            bool isUsernameExists = false;
-            foreach (var korisnik in Korisniks)
-            {
-                if (korisnik.KorisnickoIme.Equals(NewKorisnik.KorisnickoIme, StringComparison.OrdinalIgnoreCase))
-                {
-                    isUsernameExists = true;
-                    break;
-                }
-            }
+            bool isUsernameExists =
+                Korisniks.Any(k =>
+                    string.Equals(
+                        k.KorisnickoIme,
+                        NewKorisnik.KorisnickoIme,
+                        StringComparison.OrdinalIgnoreCase));
 
             if (isUsernameExists)
             {
-                string existsMessage = Application.Current.Resources.Contains("UsernameExistsMessage")
-                    ? (string)Application.Current.Resources["UsernameExistsMessage"]
-                    : "Korisničko ime već postoji.";
+                string existsMessage =
+                    Application.Current.Resources.Contains(
+                        "UsernameExistsMessage")
+                        ? (string)Application.Current.Resources[
+                            "UsernameExistsMessage"]
+                        : "Korisničko ime već postoji.";
 
-                string notifTitle = Application.Current.Resources.Contains("NotificationTitle2")
-                    ? (string)Application.Current.Resources["NotificationTitle2"]
-                    : "Obavještenje";
+                string notifTitle =
+                    Application.Current.Resources.Contains(
+                        "NotificationTitle2")
+                        ? (string)Application.Current.Resources[
+                            "NotificationTitle2"]
+                        : "Obavještenje";
 
-                MessageBox.Show(existsMessage, notifTitle, MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show(
+                    existsMessage,
+                    notifTitle,
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Warning);
+
                 return;
             }
 
-            string hashedPass = HashPassword(NewKorisnik.Lozinka);
-            NewKorisnik.Lozinka = hashedPass;
-            NewKorisnik.IdRole = 2; // pretpostavka: 2 = običan korisnik
+            NewKorisnik.Lozinka =
+                PasswordHasher.HashPassword(
+                    NewKorisnik.Lozinka);
+
+            // 2 = običan korisnik.
+            NewKorisnik.IdRole = 2;
+
             context.Korisniks.Add(NewKorisnik);
             context.SaveChanges();
 
             NewKorisnik = new Korisnik();
+
             OnPropertyChanged(nameof(NewKorisnik));
 
-            string successMessage = Application.Current.Resources.Contains("SuccessfulRegistration")
-                ? (string)Application.Current.Resources["SuccessfulRegistration"]
-                : "Registracija uspješna!";
+            string successMessage =
+                Application.Current.Resources.Contains(
+                    "SuccessfulRegistration")
+                    ? (string)Application.Current.Resources[
+                        "SuccessfulRegistration"]
+                    : "Registracija uspješna!";
 
-            string title = Application.Current.Resources.Contains("NotificationTitle2")
-                ? (string)Application.Current.Resources["NotificationTitle2"]
-                : "Obavještenje";
+            string title =
+                Application.Current.Resources.Contains(
+                    "NotificationTitle2")
+                    ? (string)Application.Current.Resources[
+                        "NotificationTitle2"]
+                    : "Obavještenje";
 
-            MessageBox.Show(successMessage, title, MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show(
+                successMessage,
+                title,
+                MessageBoxButton.OK,
+                MessageBoxImage.Information);
 
             RegistrationSuccessful?.Invoke();
         }
 
-        public static string HashPassword(string password)
-        {
-            using (SHA256 sha256 = SHA256.Create())
-            {
-                byte[] passwordBytes = Encoding.UTF8.GetBytes(password);
-                byte[] hashBytes = sha256.ComputeHash(passwordBytes);
-                return Convert.ToBase64String(hashBytes);
-            }
-        }
+        public event PropertyChangedEventHandler?
+            PropertyChanged;
 
-        public event PropertyChangedEventHandler? PropertyChanged;
-        protected void OnPropertyChanged(string propertyName)
-            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        protected void OnPropertyChanged(
+            string propertyName)
+        {
+            PropertyChanged?.Invoke(
+                this,
+                new PropertyChangedEventArgs(propertyName));
+        }
     }
 }
