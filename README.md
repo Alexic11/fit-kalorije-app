@@ -1,5 +1,7 @@
 # Fit – Calorie Tracking Application
 
+[![Build](https://github.com/Alexic11/fit-kalorije-app/actions/workflows/build.yml/badge.svg)](https://github.com/Alexic11/fit-kalorije-app/actions/workflows/build.yml)
+
 A desktop calorie tracking application built with **C#, .NET 8, WPF, Entity Framework Core, and MySQL**.
 
 Fit helps users track meals, physical activities, daily calorie goals, and calorie balance through a modern desktop interface. The application also includes user registration, authentication, role-based functionality, localization, theme customization, and administrative user management.
@@ -476,6 +478,24 @@ fit-kalorije-app/
 ├── Fit.sln
 └── README.md
 ```
+
+
+
+---
+
+
+## 🔄 Continuous Integration
+
+The repository includes a **GitHub Actions CI workflow** that automatically validates the application on every push and pull request to the `main` branch.
+
+The CI pipeline:
+
+- Runs on a Windows environment
+- Configures the .NET 8 SDK
+- Restores NuGet dependencies
+- Builds the WPF application in Release mode
+
+The current build status is displayed at the top of this README.
 
 ---
 
