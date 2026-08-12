@@ -1,33 +1,189 @@
+# Fit – Calorie Tracking Application
 
-# 🔷 Elektrotehnički fakultet – Univerzitet u Banjoj Luci  
-## 📘 KORISNIČKO UPUTSTVO
+A desktop calorie tracking application built with **C#, .NET 8, WPF, Entity Framework Core, and MySQL**.
 
-**Naziv aplikacije:** FIT – Aplikacija za praćenje kalorija  
-**Autor:** Milan Aleksić  
-**Studijski program:** Softversko inženjerstvo  
-**Godina izrade:** 2025.
+Fit helps users track meals, physical activities, daily calorie goals, and calorie balance through a modern desktop interface. The application also includes user registration, authentication, role-based functionality, localization, theme customization, and administrative user management.
+
+The project follows the **MVVM pattern**, separating the user interface, presentation logic, and data model.
 
 ---
 
-## 📑 Sadržaj
+## 🚀 Key Features
 
-1. [📘 Uvod](#1-📘-uvod)  
-2. [🧭 Korišćenje aplikacije](#2-🧭-korišćenje-aplikacije)  
-   - [🔐 Prijava i registracija](#21-🔐-prijava-i-registracija)  
-   - [🍽️ Unos obroka, aktivnosti i cilja](#22-🍽️-unos-obroka-aktivnosti-i-cilja)  
-   - [📊 Bilans kalorija](#23-📊-bilans-kalorija)  
-   - [🎨 Opcije prikaza](#24-🎨-opcije-prikaza)  
-3. [👤 Uloge korisnika](#3-👤-uloge-korisnika)  
-4. [🧰 Tehnologije korištene u izradi](#4-🧰-tehnologije-korištene-u-izradi)  
-5. [📬 Kontakt](#5-📬-kontakt)  
+* 🔐 User authentication and registration
+* 👤 User and administrator roles
+* 🍽️ Meal and calorie tracking
+* 🥩 Macronutrient tracking
+* 🏃 Physical activity tracking
+* 🎯 Daily calorie goals
+* 📊 Daily calorie balance
+* 🔎 Filtering and data overview
+* 👥 Administrative user management
+* 🌐 Serbian and English localization
+* 🎨 Multiple application themes
+* 💾 MySQL database persistence
+* 🔒 PBKDF2 password hashing with legacy SHA-256 compatibility
+
+---
+
+## 🛠️ Technology Stack
+
+### Application
+
+* **C#**
+* **.NET 8**
+* **WPF (Windows Presentation Foundation)**
+* **XAML**
+* **MVVM**
+
+### Data Access
+
+* **Entity Framework Core 8**
+* **Pomelo Entity Framework Core MySQL Provider**
+* **MySQL**
+
+### UI
+
+* **Material Design in XAML Toolkit**
+* **LiveCharts**
+* **WPF Resource Dictionaries**
+
+### Development
+
+* **Git & GitHub**
+* **Visual Studio / .NET CLI**
+* **NuGet**
+
+---
+
+## 🏗️ Application Architecture
+
+The application is organized using the MVVM pattern:
+
+```text
+┌─────────────────────────────┐
+│          WPF Views          │
+│        XAML Windows         │
+└──────────────┬──────────────┘
+               │
+               ▼
+┌─────────────────────────────┐
+│         ViewModels          │
+│ UI Logic / Commands / State │
+└──────────────┬──────────────┘
+               │
+               ▼
+┌─────────────────────────────┐
+│           Models            │
+│ Entity Framework Entities   │
+└──────────────┬──────────────┘
+               │
+               ▼
+┌─────────────────────────────┐
+│        FitAppContext        │
+│   Entity Framework Core     │
+└──────────────┬──────────────┘
+               │
+               ▼
+┌─────────────────────────────┐
+│        MySQL Database       │
+└─────────────────────────────┘
+```
+
+The UI is implemented with WPF and XAML, while ViewModels contain presentation and interaction logic. Entity Framework Core is used for persistence and MySQL database access.
+
+---
+
+## 📸 Screenshots
+
+### Login
+
+<p align="center">
+  <img src="images/pocetni_ekran.png" alt="Login screen" width="700"/>
+</p>
+
+### User Dashboard
+
+<p align="center">
+  <img src="images/korisnik_prikaz.png" alt="User dashboard" width="700"/>
+</p>
+
+### Meal Tracking
+
+<p align="center">
+  <img src="images/unos_obroka.png" alt="Meal tracking" width="700"/>
+</p>
+
+### Activity Tracking
+
+<p align="center">
+  <img src="images/unos_aktivnosti.png" alt="Activity tracking" width="700"/>
+</p>
+
+### Daily Calorie Goal
+
+<p align="center">
+  <img src="images/cilj.png" alt="Daily calorie goal" width="700"/>
+</p>
+
+### Calorie Balance
+
+<p align="center">
+  <img src="images/bilans.png" alt="Calorie balance" width="700"/>
+</p>
+
+### Meal History
+
+<p align="center">
+  <img src="images/pregled_obroka.png" alt="Meal history" width="700"/>
+</p>
+
+### Activity History
+
+<p align="center">
+  <img src="images/pregled_aktivnosti.png" alt="Activity history" width="700"/>
+</p>
+
+### User Administration
+
+<p align="center">
+  <img src="images/pregled_korisnika.png" alt="User administration" width="700"/>
+</p>
+
+### Administrator Dashboard
+
+<p align="center">
+  <img src="images/admin_prikaz.png" alt="Administrator dashboard" width="700"/>
+</p>
+
+---
+
+## 📖 Application Overview
+
+Fit was originally developed as an academic project focused on **human-computer interaction and desktop application design** at the Faculty of Electrical Engineering, University of Banja Luka.
+
+The application allows users to manage meals, activities, calorie goals, and historical records while providing separate functionality for administrators.
+
+The project was later prepared as a portfolio project with improvements to repository structure, configuration management, and application security.
+
+---
+
+# 📘 Korisničko uputstvo
+
+**Naziv aplikacije:** FIT – Aplikacija za praćenje kalorija
+**Autor:** Milan Aleksić
+**Studijski program:** Softversko inženjerstvo
+**Godina izrade:** 2025.
+
+Aplikacija je originalno razvijena kao dio projektnog rada na predmetu **Interakcija čovjek-računar** na Elektrotehničkom fakultetu Univerziteta u Banjoj Luci.
 
 ---
 
 ## 1. 📘 Uvod
 
-Dobrodošli u korisničko uputstvo za aplikaciju **Fit**.  
-Aplikacija je razvijena kao dio projektnog rada na predmetu Interakcija čovjek-računar (Elektrotehnički fakultet, Univerzitet u Banjoj Luci).  
-Osnovna namjena aplikacije je da pomogne korisnicima da prate svoj dnevni unos kalorija kroz obroke i aktivnosti, te održe zdraviji način života.
+Osnovna namjena aplikacije **Fit** jeste da korisnicima omogući praćenje dnevnog unosa kalorija kroz obroke i fizičke aktivnosti, definisanje dnevnog kalorijskog cilja i pregled kalorijskog bilansa.
+
+Aplikacija omogućava odvojene funkcionalnosti za standardne korisnike i administratore.
 
 ---
 
@@ -35,153 +191,318 @@ Osnovna namjena aplikacije je da pomogne korisnicima da prate svoj dnevni unos k
 
 ### 2.1 🔐 Prijava i registracija
 
-Po pokretanju aplikacije otvara se forma za **prijavu**.  
-- Ako korisnik nema nalog, klikom na **Registruj se** otvara se forma za unos korisničkog imena i lozinke, kao i samog imena i prezimena.
-- Lozinka se bezbedno čuva heširanjem.
+Po pokretanju aplikacije otvara se forma za **prijavu**.
 
-Uspješnom prijavom korisnik se preusmjerava na odgovarajući interfejs u zavisnosti od uloge.
+Ako korisnik nema nalog, klikom na **Registruj se** otvara se forma za unos:
 
-<p align="center">
-  <img src="images/pocetni_ekran.png" alt="Početni ekran - prijava" width="700"/>
-</p>
+* korisničkog imena,
+* lozinke,
+* imena,
+* prezimena.
 
-<p align="center">
-  <img src="images/korisnik_prikaz.png" alt="Prikaz za korisnika" width="700"/>
-</p>
+Lozinke novih korisnika se ne čuvaju u izvornom obliku, već se obrađuju korištenjem PBKDF2 password hashing mehanizma.
+
+Nakon uspješne prijave korisnik se preusmjerava na odgovarajući interfejs u zavisnosti od svoje uloge.
 
 ---
 
 ### 2.2 🍽️ Unos obroka, aktivnosti i cilja
 
-Korisnik može da unosi:
+Korisnik može evidentirati obroke, fizičke aktivnosti i dnevni kalorijski cilj.
 
-#### ✅ Obroci (hrana):
-- Naziv namirnice
-- Masa (u gramima)
-- Kalorije
-- **Makronutrijenti**: ugljeni hidrati, proteini, masti
-- Tip obroka (doručak, ručak, užina itd.)
-- Datum i vrijeme unosa
+#### ✅ Obroci
 
-<p align="center">
-  <img src="images/unos_obroka.png" alt="Unos obroka" width="700"/>
-</p>
+Za obrok je moguće evidentirati:
 
-#### ✅ Aktivnosti:
-- Tip aktivnosti (hodanje, trčanje, plivanje itd.)
-- Trajanje u minutama
-- Datum i vrijeme aktivnosti
+* naziv namirnice,
+* masu u gramima,
+* kalorije,
+* ugljene hidrate,
+* proteine,
+* masti,
+* tip obroka,
+* datum i vrijeme unosa.
 
-<p align="center">
-  <img src="images/unos_aktivnosti.png" alt="Unos aktivnosti" width="700"/>
-</p>
+#### ✅ Aktivnosti
 
-#### 🎯 Ciljani dnevni unos kalorija:
-Korisnik može unijeti **lični cilj** – broj kalorija koji planira da unese tokom dana.  
-Ovaj cilj se koristi za poređenje u bilansu kalorija.
+Za fizičku aktivnost moguće je evidentirati:
 
-<p align="center">
-  <img src="images/cilj.png" alt="Unos cilja kalorija" width="700"/>
-</p>
+* tip aktivnosti,
+* trajanje u minutama,
+* datum i vrijeme aktivnosti.
 
-Sve stavke se prikazuju u tabelama sa mogućnošću:
-- Dodavanja ✅  
-- Izmjene ✏️  
-- Brisanja 🗑️  
+#### 🎯 Ciljani dnevni unos kalorija
 
-Tabele omogućavaju filtriranje po nazivu i tipu radi lakšeg pretraživanja.
+Korisnik može definisati lični dnevni kalorijski cilj.
 
-Korisnik može pregledati **sve prethodno unesene obroke i aktivnosti**, sortirane po datumu.
+Definisani cilj koristi se prilikom izračunavanja i prikaza dnevnog kalorijskog bilansa.
 
-<p align="center">
-  <img src="images/pregled_obroka.png" alt="Pregled unosa obroka" width="700"/>
-</p>
+Unesene stavke moguće je:
 
-<p align="center">
-  <img src="images/pregled_aktivnosti.png" alt="Pregled aktivnosti" width="700"/>
-</p>
+* dodavati,
+* izmjenjivati,
+* brisati,
+* filtrirati i pregledati.
+
+Korisnik takođe može pregledati prethodno unesene obroke i aktivnosti sortirane prema datumu.
 
 ---
 
 ### 2.3 📊 Bilans kalorija
 
-U bilansu se automatski izračunava:
+Aplikacija automatski izračunava:
 
-- ✅ **Ukupan unos kalorija** (zbir kalorija iz obroka)
-- ✅ **Ukupna potrošnja kalorija** (na osnovu trajanja i vrste aktivnosti)
-- ✅ **Uneseni cilj** (ako je korisnik prethodno definisao dnevni limit)
-- ✅ **Preostale kalorije**: razlika između cilja i bilansa
+* **ukupan unos kalorija** iz evidentiranih obroka,
+* **ukupnu potrošnju kalorija** na osnovu aktivnosti,
+* **definisani dnevni cilj**,
+* **preostale kalorije** u odnosu na cilj i trenutni bilans.
 
 Bilans može biti:
-- **Pozitivan** – korisnik je unio više nego što je potrošio
-- **Negativan** – korisnik je potrošio više kalorija
-- **Neutralan** – unos i potrošnja su izbalansirani
 
-Prikaz bilansa je kombinovan:
-- Numerički (tačne vrijednosti)
-- Vizualno (boje)
+* **pozitivan** – korisnik je unio više kalorija nego što je potrošio,
+* **negativan** – korisnik je potrošio više kalorija,
+* **neutralan** – unos i potrošnja su izbalansirani.
 
-<p align="center">
-  <img src="images/bilans.png" alt="Prikaz bilansa kalorija" width="700"/>
-</p>
+Rezultati se korisniku prikazuju numerički i vizuelno.
 
 ---
 
 ### 2.4 🎨 Opcije prikaza
 
-Aplikacija podržava sljedeće opcije:
-- Promjena teme (svijetla, tamna, šarena)
-- Promjena jezika (Srpski / Engleski)
+Aplikacija podržava:
+
+* promjenu teme interfejsa,
+* svijetlu temu,
+* tamnu temu,
+* dodatne vizuelne teme,
+* srpski jezik,
+* engleski jezik.
 
 ---
 
-## 3. 👤 Uloge korisnika
+## 3. 👤 User Roles
 
-### ➤ Korisnik:
+### Standard User
 
-- Unosi i uređuje:
-  - **Obroke i makronutrijente**
-  - **Fizičke aktivnosti**
-  - **Ciljani broj kalorija** (dnevni limit)
-- Ima pregled svih svojih:
-  - Unosa hrane
-  - Unosa aktivnosti
-  - Dnevnog bilansa kalorija
-- Može mijenjati temu i jezik interfejsa
+Standardni korisnik može:
 
-### ➤ Administrator:
+* unositi i uređivati obroke,
+* pratiti makronutrijente,
+* unositi fizičke aktivnosti,
+* definisati dnevni kalorijski cilj,
+* pregledati istoriju obroka,
+* pregledati istoriju aktivnosti,
+* pregledati dnevni kalorijski bilans,
+* mijenjati temu aplikacije,
+* mijenjati jezik interfejsa.
 
-- Ima pristup svim korisničkim nalozima
-- Može:
-  - **Dodavati nove korisnike**
-  - **Izmjenjivati korisničke podatke**
-  - **Brisati korisnike**
-- Može pregledati sve podatke vezane za korisnike
+### Administrator
 
-<p align="center">
-  <img src="images/pregled_korisnika.png" alt="Pregled korisnika" width="700"/>
-</p>
+Administrator ima dodatne mogućnosti za upravljanje korisnicima.
 
-<p align="center">
-  <img src="images/admin_prikaz.png" alt="Administrator prikaz" width="700"/>
-</p>
+Administrator može:
+
+* pregledati korisničke naloge,
+* dodavati nove korisnike,
+* izmjenjivati korisničke podatke,
+* brisati korisnike,
+* pregledati podatke vezane za korisnike.
 
 ---
 
-## 4. 🧰 Tehnologije korištene u izradi
+## 🔐 Security
 
-- **WPF (Windows Presentation Foundation)**
-- **C#**
-- **XAML**
-- **MySQL**
-- **Entity Framework Core**
-- **Material Design in XAML Toolkit** – moderan vizuelni prikaz
+The application uses environment-based database configuration instead of storing database credentials directly in the source code.
+
+The MySQL connection is configured through:
+
+```text
+FIT_DB_CONNECTION
+```
+
+Example local value:
+
+```text
+server=localhost;port=3306;user=YOUR_USER;password=YOUR_PASSWORD;database=fitapp
+```
+
+Database credentials should **never be committed to the repository**.
+
+New user passwords are protected using **PBKDF2 with a randomly generated salt**.
+
+The application also includes compatibility with legacy SHA-256 password hashes so existing accounts can be migrated to the newer password storage format after successful authentication.
 
 ---
 
-## 5. 📬 Kontakt
+## ⚙️ Installation & Setup
 
-Za dodatne informacije ili tehničku podršku:
+### Prerequisites
 
-📧 **milan2001alexic@hotmail.com**  
-🔗 GitHub: [https://github.com/Alexic11/fit-kalorije-app](https://github.com/Alexic11/fit-kalorije-app)
+Before running the application, make sure you have:
+
+- **Windows**
+- **.NET 8 SDK**
+- **MySQL 8**
+- **Git**
+- Optional: **Visual Studio 2022** with .NET desktop development workload
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Alexic11/fit-kalorije-app.git
+cd fit-kalorije-app
+```
+
+### 2. Configure the Database
+
+The application uses a MySQL database named:
+
+```text
+fitapp
+```
+
+The database connection is provided through the environment variable:
+
+```text
+FIT_DB_CONNECTION
+```
+
+Example:
+
+```text
+server=localhost;port=3306;user=YOUR_USER;password=YOUR_PASSWORD;database=fitapp
+```
+
+On Windows Command Prompt:
+
+```cmd
+setx FIT_DB_CONNECTION "server=localhost;port=3306;user=YOUR_USER;password=YOUR_PASSWORD;database=fitapp"
+```
+
+After setting the variable, restart the terminal or development environment so the new value is available to the application.
+
+> Database credentials must not be committed to the repository.
+
+### 3. Restore Dependencies
+
+Using the .NET CLI:
+
+```bash
+dotnet restore
+```
+
+### 4. Build the Application
+
+```bash
+dotnet build Fit.sln
+```
+
+### 5. Run the Application
+
+```bash
+dotnet run --project Fit.csproj
+```
+
+Because this is a **WPF desktop application**, it must be run on Windows.
+
+### Database Schema
+
+The current repository does not yet include an automated database migration or SQL schema script.
+
+The application expects an existing MySQL database compatible with the Entity Framework Core model defined in:
+
+```text
+Models/FitAppContext.cs
+```
+
+A dedicated database schema script can be added in a future repository update for fully reproducible local setup.
+
+
+## 📁 Project Structure
+
+```text
+fit-kalorije-app/
+│
+├── Languages/
+│   ├── StringResources.en.xaml
+│   └── StringResources.sr.xaml
+│
+├── Models/
+│   ├── Aktivnost.cs
+│   ├── Cilj.cs
+│   ├── CurrentUser.cs
+│   ├── FitAppContext.cs
+│   ├── Korisnik.cs
+│   ├── Obrok.cs
+│   ├── Rola.cs
+│   ├── TipAktivnosti.cs
+│   └── TipObroka.cs
+│
+├── Security/
+│   └── PasswordHasher.cs
+│
+├── ViewModels/
+│   ├── BilansViewModel.cs
+│   ├── LoginViewModel.cs
+│   ├── PregledKorisnikaViewModel.cs
+│   ├── PrikazAktivnostiViewModel.cs
+│   ├── PrikazUnosaViewModel.cs
+│   ├── RegistracijaViewModel.cs
+│   ├── UnosAktivnostiViewModel.cs
+│   ├── UnosCiljaViewModel.cs
+│   └── UnosHraneViewModel.cs
+│
+├── Views/
+│   ├── AdminDashboardWindow.xaml
+│   ├── DashboardWindow.xaml
+│   ├── BilansWindow.xaml
+│   ├── KorisnikFormaWindow.xaml
+│   ├── PregledAktivnostiWindow.xaml
+│   ├── PregledKorisnikaView.xaml
+│   ├── PrikazUnosaWindow.xaml
+│   ├── RegisterWindow.xaml
+│   ├── StatistikaWindow.xaml
+│   ├── UnosAktivnostiWindow.xaml
+│   ├── UnosCiljaWindow.xaml
+│   └── UnosHraneWindow.xaml
+│
+├── images/
+├── App.xaml
+├── App.xaml.cs
+├── MainWindow.xaml
+├── MainWindow.xaml.cs
+├── RelayCommand.cs
+├── Fit.csproj
+├── Fit.sln
+└── README.md
+```
+
+---
+
+## 🎓 Project Background
+
+This application was originally developed in **2025** as an academic project at the **Faculty of Electrical Engineering, University of Banja Luka**, within the Software Engineering study program.
+
+The project demonstrates practical work with:
+
+* desktop application development,
+* C# and .NET,
+* WPF and XAML,
+* MVVM architecture,
+* Entity Framework Core,
+* relational databases,
+* authentication,
+* role-based functionality,
+* localization,
+* UI/UX design,
+* Git version control.
+
+---
+
+## 📬 Contact
+
+**Milan Aleksić**
+
+GitHub: `Alexic11`
+
+Repository: `Alexic11/fit-kalorije-app`
