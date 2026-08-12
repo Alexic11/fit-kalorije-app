@@ -334,6 +334,90 @@ The application also includes compatibility with legacy SHA-256 password hashes 
 
 ---
 
+## ⚙️ Installation & Setup
+
+### Prerequisites
+
+Before running the application, make sure you have:
+
+- **Windows**
+- **.NET 8 SDK**
+- **MySQL 8**
+- **Git**
+- Optional: **Visual Studio 2022** with .NET desktop development workload
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Alexic11/fit-kalorije-app.git
+cd fit-kalorije-app
+```
+
+### 2. Configure the Database
+
+The application uses a MySQL database named:
+
+```text
+fitapp
+```
+
+The database connection is provided through the environment variable:
+
+```text
+FIT_DB_CONNECTION
+```
+
+Example:
+
+```text
+server=localhost;port=3306;user=YOUR_USER;password=YOUR_PASSWORD;database=fitapp
+```
+
+On Windows Command Prompt:
+
+```cmd
+setx FIT_DB_CONNECTION "server=localhost;port=3306;user=YOUR_USER;password=YOUR_PASSWORD;database=fitapp"
+```
+
+After setting the variable, restart the terminal or development environment so the new value is available to the application.
+
+> Database credentials must not be committed to the repository.
+
+### 3. Restore Dependencies
+
+Using the .NET CLI:
+
+```bash
+dotnet restore
+```
+
+### 4. Build the Application
+
+```bash
+dotnet build Fit.sln
+```
+
+### 5. Run the Application
+
+```bash
+dotnet run --project Fit.csproj
+```
+
+Because this is a **WPF desktop application**, it must be run on Windows.
+
+### Database Schema
+
+The current repository does not yet include an automated database migration or SQL schema script.
+
+The application expects an existing MySQL database compatible with the Entity Framework Core model defined in:
+
+```text
+Models/FitAppContext.cs
+```
+
+A dedicated database schema script can be added in a future repository update for fully reproducible local setup.
+
+
 ## 📁 Project Structure
 
 ```text
